@@ -1,0 +1,105 @@
+<div class="campaigns-page min-h-screen bg-gray-50">
+  <!-- Top Navbar -->
+<!-- <app-top-nav-bar></app-top-nav-bar> -->
+
+  <div class="flex">
+    <!-- Sidebar (assuming you have one) -->
+    <aside class="w-64 bg-white shadow-md">
+      <!-- Sidebar content: links to Dashboard, Products, Campaigns, etc. -->
+      <nav class="p-4">
+        <a routerLink="/dashboard" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Dashboard</a>
+        <a routerLink="/products" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Products</a>
+        <a routerLink="/campaigns" class="block py-2 px-4 bg-blue-100 text-blue-700 font-semibold">Campaigns</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <!-- Header -->
+      <header class="mb-8">
+        <div class="flex justify-between items-center">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900">Campaigns</h1>
+            <p class="text-gray-600 mt-1">Manage your ad campaigns for skincare products</p>
+          </div>
+          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-medium" routerLink="/campaigns/new">
+            + New Campaign
+          </button>
+        </div>
+      </header>
+
+      <!-- Search & Filters -->
+      <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+        <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+          <input 
+            [(ngModel)]="searchTerm" 
+            (input)="onSearch()" 
+            placeholder="Search campaigns by name or product..." 
+            class="flex-1 max-w-md px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+          <div class="flex gap-2">
+            <select class="px-4 py-2 border border-gray-300 rounded-lg">
+              <option>All Status</option>
+              <option>Draft</option>
+              <option>Active</option>
+              <option>Paused</option>
+            </select>
+            <button class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Filter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campaigns Table -->
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created</th>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ads</th>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              @for (campaign of filteredCampaigns(); track campaign.id) {
+
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="font-medium text-gray-900">{{campaign.name}}</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{campaign.product}}</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium inline-flex items-center"
+                          [ngClass]="getStatusClass(campaign.status)">
+                      {{campaign.status.charAt(0).toUpperCase() + campaign.status.slice(1)}}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {{campaign.created | date:'shortDate'}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-500">
+                    {{campaign.adsCount}} ads
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
+                    <button class="text-indigo-600 hover:text-indigo-900">View</button>
+                    <button class="text-green-600 hover:text-green-900">Generate Ads</button>
+                    <button class="text-gray-600 hover:text-gray-900">Edit</button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        @if (filteredCampaigns.length === 0) {
+          <div class="text-center py-12">
+            <p class="text-gray-500 text-lg">No campaigns found.</p>
+            <button class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Create First Campaign</button>
+          </div>
+        }
+      </div>
+    </main>
+  </div>
+</div>

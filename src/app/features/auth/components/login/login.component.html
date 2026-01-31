@@ -1,0 +1,66 @@
+<div class="login-container">
+  <!-- Dark overlay -->
+  <div class="bg-overlay"></div>
+
+  <!-- Centered login card -->
+  <div class="login-popup">
+    <div class="login-form">
+
+      <div class="header">
+        <div class="logo-circle">V</div>
+        <h1>Welcome back!</h1>
+        <p>Sign in to your account</p>
+      </div>
+
+      <form (ngSubmit)="onSubmit()">
+
+        <!-- Email -->
+        <div class="input-group">
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="loginForm.email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="loginForm.password"
+            placeholder="Enter your password"
+            required
+            minlength="6"
+          />
+        </div>
+
+        <!-- Sign in -->
+        <button
+          type="submit"
+          class="primary-btn"
+          [disabled]="!isFormValid()"
+        >
+          Sign in
+        </button>
+
+        <!-- Divider -->
+        <div class="divider">or continue with</div>
+
+        <!-- Google -->
+        <button type="button" class="google-btn" (click)="onGoogleLogin()">
+          <img src="https://www.gstatic.com/accounts/ui/avatar_2x.png" />
+          Sign in with Google
+        </button>
+
+        <!-- Footer -->
+        <div class="footer">
+          <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
