@@ -14,8 +14,8 @@
 .login-popup {
   background: #ffffff;
   width: 100%;
-  max-width: 400px; /* Matching the login box width */
-  padding: 35px;
+  max-width: 450px; /* Matching the login box width */
+  padding: 60px;
   border-radius: 28px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
   text-align: center;

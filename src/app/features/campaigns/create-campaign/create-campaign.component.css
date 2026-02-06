@@ -1,0 +1,121 @@
+.architect-wrapper {
+  background-color: #f0f2f5;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.architect-container {
+  background-color: #c7d2fe; /* Periwinkle container */
+  width: 100%;
+  max-width: 850px;
+  border-radius: 40px;
+  padding: 40px 60px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 4px solid #a5b4fc;
+}
+
+.main-title {
+  text-align: center;
+  color: #6366f1;
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.section-header {
+  color: #4f46e5;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 25px 0 15px 0;
+}
+
+.vibe-label {
+  color: #6366f1;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Inputs and Textareas */
+.vibe-input, .vibe-select, .vibe-textarea, .search-pill input {
+  width: 100%;
+  background-color: #e0e7ff; /* Lighter purple background */
+  border: none;
+  border-radius: 15px;
+  padding: 12px 20px;
+  color: #4338ca;
+  font-weight: 500;
+}
+
+.vibe-textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Custom Checkboxes and Radios */
+.radio-row, .check-row {
+  display: flex;
+  gap: 30px;
+}
+
+.custom-radio, .custom-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4338ca;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Chips */
+.chip-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vibe-chip, .vibe-chip-purple {
+  border: none;
+  border-radius: 10px;
+  padding: 6px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vibe-chip { background-color: #a5b4fc; color: white; }
+.vibe-chip.active { background-color: #6366f1; }
+.vibe-chip-purple { background-color: #818cf8; color: white; }
+
+/* Primary Button */
+.vibe-btn-primary {
+  background: linear-gradient(90deg, #60a5fa, #4f46e5);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 50px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+  transition: transform 0.2s;
+}
+
+.vibe-btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.footer-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.section-divider {
+  height: 2px;
+  background-color: rgba(255,255,255,0.4);
+  margin: 30px 0;
+}

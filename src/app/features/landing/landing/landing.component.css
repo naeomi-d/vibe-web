@@ -249,15 +249,17 @@
 }
 .cta-row { 
   display: flex; 
-  flex-direction: column; /* This forces the heading to be above the buttons */
-  align-items: center;    /* Centers everything horizontally */
-  gap: 2rem;              /* Space between the heading and the button group */
+  flex-direction: column; 
+  align-items: center;    
+  gap: 2.5rem; /* Space between heading and the button group */
+  margin-top: 4rem;
   margin-bottom: 4rem; 
 }
-.cta-button-group {
-  display: flex;
-  gap: 1.5rem;
+.button-group {
+  display: flex;       /* This puts them in a line */
+  gap: 1.5rem;         /* Space between the two buttons */
   justify-content: center;
+  align-items: center;
 }
 .cta-heading {
   color: #ffffff;
@@ -269,19 +271,22 @@
   text-transform: uppercase;
 }
 .btn-secondary { 
-  padding: 1rem 2.5rem; 
-  background: rgba(255,255,255,0.2); 
+  padding: 1rem 3rem; 
+  background: rgba(255, 255, 255, 0.2); 
   color: white; 
   border-radius: 50px; 
   text-decoration: none; 
-  font-weight: 600; 
+  font-weight: 700; 
   backdrop-filter: blur(10px); 
-  border: 1px solid rgba(255,255,255,0.3); 
-  transition: all 0.3s; 
+  border: 1px solid rgba(255, 255, 255, 0.4); 
+  transition: all 0.3s ease;
+  min-width: 160px; /* Ensures buttons are consistent sizes */
+  text-align: center;
 }
 .btn-secondary:hover { 
-  background: rgba(255,255,255,0.3); 
-  transform: translateY(-2px); 
+  background: rgba(255, 255, 255, 0.3); 
+  transform: translateY(-3px); 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 .learn { 
   background: rgba(255,255,255,0.15); 
