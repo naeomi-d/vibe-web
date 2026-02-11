@@ -1,88 +1,68 @@
-<div class="dashboard">
-  <!-- Top Navbar -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">Logo</div>
-      <span class="brand">Vibe match</span>
-    </div>
+<div class="home-view-container">
+  <section class="welcome">
+    <h1>Welcome, [Brand Name]</h1>
+  </section>
 
-    <div class="topbar-center">
-      <div class="search-bar">
-        <span class="search-icon">🔍</span>
-        <input type="text" placeholder="Search" />
+  <section class="stats-grid">
+    <div class="stat-card blue-gradient">
+      <div class="stat-content">
+        <span class="stat-label">Active Campaigns</span>
+        <span class="stat-number">06</span>
       </div>
+      <div class="stat-icon-badge">06</div>
     </div>
 
-    <div class="topbar-right">
-      <button class="icon-btn">
-        🔔
+    <div class="stat-card purple-gradient">
+      <div class="stat-content">
+        <span class="stat-label">Total Reach</span>
+        <span class="stat-number">22</span>
+      </div>
+      <div class="stat-icon-badge">22</div>
+    </div>
+
+    <div class="stat-card blue-gradient">
+      <div class="stat-content">
+        <span class="stat-label">Conversion Rate</span>
+        <span class="stat-number">22</span>
+      </div>
+      <div class="stat-icon-badge">22</div>
+    </div>
+
+    <div class="stat-card purple-gradient">
+      <div class="stat-content">
+        <span class="stat-label">Performance</span>
+        <span class="stat-number">22</span>
+      </div>
+      <div class="stat-icon-badge">22</div>
+    </div>
+  </section>
+
+  <section class="quick-actions">
+    <h2>Quick Actions</h2>
+    <div class="actions-row">
+      <button class="cta-btn primary-gradient" routerLink="/campaigns/new">
+        Create Campaign
       </button>
-      <div class="user-avatar">P</div>
+      <button class="cta-btn secondary-outline">
+        View Report
+      </button>
     </div>
-  </header>
+  </section>
 
-  <div class="dashboard-layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-item active">
-        <span class="icon">🏠</span>
-        <span>Home</span>
+  <section class="notifications">
+    <h2>Recent Notifications</h2>
+    <div class="notifications-card">
+      <div class="notification-row">
+        <span class="notif-text">Campaign A updated</span>
+        <span class="notif-status running">Running</span>
+        <span class="notif-date">12 Jan 2026</span>
       </div>
-      <div class="sidebar-item">
-        <span class="icon">📣</span>
-        <span>Campaigns</span>
+      <div class="divider"></div>
+      <div class="notification-row">
+        <span class="notif-text">New asset uploaded</span>
+        <span class="notif-status optimizing">Optimizing</span>
+        <span class="notif-date">12 Jan 2026</span>
       </div>
-      <div class="sidebar-item">
-        <span class="icon">✏️</span>
-        <span>Creative Studio</span>
-      </div>
-      <div class="sidebar-item">
-        <span class="icon">📁</span>
-        <span>Assets</span>
-      </div>
-      <div class="sidebar-item">
-        <span class="icon">📊</span>
-        <span>Reports</span>
-      </div>
-      <div class="sidebar-item">
-        <span class="icon">⚙️</span>
-        <span>Settings</span>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main">
-      <!-- Welcome -->
-      <section class="welcome">
-        <h1>Welcome, [Brand Name]</h1>
-      </section>
-
-      <!-- Quick Actions -->
-      <section class="quick-actions">
-        <h2>Quick Actions</h2>
-        <div class="actions-row">
-          <button class="cta-btn primary">Create Campaign</button>
-          <button class="cta-btn secondary">View Report</button>
-        </div>
-      </section>
-
-      <!-- Recent Notifications -->
-      <section class="notifications">
-        <h2>Recent Notifications</h2>
-        <div class="notifications-card">
-          <div class="notification-row">
-            <span class="notification-text">Campaign A updated</span>
-            <span class="notification-date">12 Jan 2026</span>
-          </div>
-          <div class="divider-line"></div>
-          <div class="notification-row">
-            <span class="notification-text">New asset uploaded</span>
-            <span class="notification-date">12 Jan 2026</span>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
+    </div>
+  </section>
 </div>
-[image:25]
-

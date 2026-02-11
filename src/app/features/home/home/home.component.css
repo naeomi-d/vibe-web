@@ -1,3 +1,5 @@
+/* Keep your existing .dashboard, .topbar, and .sidebar styles as they are */
+
 .dashboard {
   height: 100vh;
   display: flex;
@@ -6,135 +8,10 @@
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Top purple bar */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 2.5rem;
-  background: linear-gradient(90deg, #8a3ef9, #5a7bff);
-  color: white;
-}
+/* ... Topbar and Sidebar styles stay the same ... */
 
-.topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+/* --- UPDATED MAIN CONTENT AREA --- */
 
-.logo-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #333;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.brand {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.topbar-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.search-bar {
-  width: 60%;
-  max-width: 550px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 999px;
-  padding: 0.6rem 1.5rem;
-  display: flex;
-  align-items: center;
-  backdrop-filter: blur(10px);
-}
-
-.search-icon {
-  margin-right: 0.75rem;
-}
-
-.search-bar input {
-  border: none;
-  background: transparent;
-  width: 100%;
-  color: white;
-  font-size: 0.95rem;
-}
-
-.search-bar input::placeholder {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.icon-btn {
-  border: none;
-  background: transparent;
-  color: white;
-  cursor: pointer;
-  font-size: 1.15rem;
-}
-
-.user-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #3f51ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-/* Layout: sidebar + main */
-.dashboard-layout {
-  display: flex;
-  flex: 1;
-  min-height: 0;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 230px;
-  background: #111;
-  color: white;
-  padding-top: 1rem;
-}
-
-.sidebar-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.5rem;
-  cursor: pointer;
-  color: #ccc;
-  font-size: 0.95rem;
-}
-
-.sidebar-item .icon {
-  width: 20px;
-  text-align: center;
-}
-
-.sidebar-item.active {
-  background: #2a2a2a;
-  color: white;
-}
-
-/* Main content */
 .main {
   flex: 1;
   padding: 2.5rem 3rem;
@@ -146,11 +23,71 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
+  color: #111;
 }
 
-/* Quick actions */
-.quick-actions h2,
-.notifications h2 {
+/* --- NEW STATS GRID (4 Post Cards) --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  color: #333; /* Darker text for readability on light gradients */
+  min-height: 100px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Specific Gradients from your Page 5 Reference */
+.blue-gradient {
+  background: linear-gradient(135deg, #b0d4ff 0%, #dae9ff 100%);
+}
+
+.purple-gradient {
+  background: linear-gradient(135deg, #c7b9ff 0%, #e5deff 100%);
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* The circular badge on the right of the cards */
+.stat-icon-badge {
+  width: 45px;
+  height: 45px;
+  background: #4ade80; /* The green badge in image_e61814 */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(74, 222, 128, 0.3);
+}
+
+/* --- QUICK ACTIONS --- */
+.quick-actions h2 {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
@@ -159,79 +96,77 @@
 .actions-row {
   display: flex;
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .cta-btn {
   border: none;
   border-radius: 999px;
-  padding: 1rem 3rem;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 1rem 3.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
   color: white;
-  background: linear-gradient(90deg, #4294ff, #316bff);
-  box-shadow: 0 10px 25px rgba(66, 148, 255, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.cta-btn.secondary {
-  background: linear-gradient(90deg, #5ac8ff, #2f80ff);
+.cta-btn.primary-gradient {
+  background: linear-gradient(90deg, #60a5fa, #3b82f6);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
 }
 
-/* Notifications card */
+.cta-btn.secondary-blue {
+  background: linear-gradient(90deg, #93c5fd, #60a5fa);
+  box-shadow: 0 10px 25px rgba(147, 197, 253, 0.4);
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* --- NOTIFICATIONS --- */
+.notifications h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
 .notifications-card {
   background: white;
-  border-radius: 18px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
 .notification-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 0;
-  font-size: 0.95rem;
+  padding: 1.2rem 0;
 }
 
-.notification-text {
-  font-weight: 500;
-  color: #333;
+.notif-text {
+  flex: 2;
+  font-weight: 600;
+  color: #1a1a1a;
 }
 
-.notification-date {
-  color: #777;
-  font-size: 0.9rem;
+.notif-status {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.divider-line {
+.notif-status.running { color: #3b82f6; }
+.notif-status.optimizing { color: #8b5cf6; }
+
+.notif-date {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.divider {
   height: 1px;
-  background: #eee;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .dashboard-layout {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    display: flex;
-    overflow-x: auto;
-  }
-
-  .sidebar-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .actions-row {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .topbar-center .search-bar {
-    width: 80%;
-  }
+  background: #f0f0f0;
 }

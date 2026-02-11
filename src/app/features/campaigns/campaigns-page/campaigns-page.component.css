@@ -1,113 +1,106 @@
-/* Sidebar and Layout Overrides to match VibeFlow Theme */
-.campaigns-page {
+/* --- PAGE LAYOUT --- */
+.campaigns-container {
+  padding: 1rem 0;
+  background: transparent;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #111;
+}
+
+/* --- SEARCH BAR --- */
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  background: white;
+  padding: 1.25rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.search-input {
+  flex: 1;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+}
+
+.filter-btn {
+  background: #4ade80;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+/* --- GRADIENT PILL ROWS --- */
+.campaign-list {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background: #fdfdfd; /* Off-white background from image */
-  font-family: 'Inter', sans-serif;
+  gap: 15px; /* The gap between rows */
 }
 
-.flex {
-  display: flex;
-  flex: 1;
-}
-
-aside {
-  width: 240px;
-  background: #1a1a1a; /* Dark sidebar matching home page */
-  color: white;
-}
-
-aside a {
-  color: #9ca3af;
-  transition: all 0.3s ease;
-  padding: 1rem 1.5rem !important;
+.campaign-row-pill {
   display: flex;
   align-items: center;
-}
-
-aside a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-}
-
-aside a.active, .bg-blue-100 {
-  background: #2a2a2a !important;
-  color: white !important;
-  border-left: 4px solid #8a3ef9; /* Purple accent */
-}
-
-/* Main Content Area */
-main {
-  flex: 1;
-  padding: 2.5rem 4rem;
-}
-
-/* Create Campaign Button - The Blue Pill */
-button[routerLink="/campaigns/new"], .bg-blue-600 {
-  background: linear-gradient(90deg, #4da1ff, #316bff) !important;
-  border: none;
-  border-radius: 20px !important; /* Pill shape */
-  padding: 0.8rem 2.5rem !important;
-  font-weight: 700;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 15px rgba(77, 161, 255, 0.4);
-  color: white;
-}
-
-/* The Campaign List Rows - Gradient Style */
-tr.hover\:bg-gray-50 {
-  background: linear-gradient(90deg, #a5b4fc, #c084fc) !important; /* Purple/Blue Gradient */
-  border-radius: 12px;
-  display: table-row;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(90deg, #b0d4ff 0%, #e5deff 100%);
+  border-radius: 999px; /* This creates the "Pill" shape */
   transition: transform 0.2s ease;
 }
 
-tr.hover\:bg-gray-50:hover {
-  transform: scale(1.005);
-  filter: brightness(1.05);
+.campaign-row-pill:hover {
+  transform: scale(1.01);
 }
 
-/* Style for text inside the gradient rows to ensure readability */
-tr td {
-  padding: 1.5rem !important;
-  color: #1e1b4b !important; /* Deep indigo text */
-  font-weight: 500 !important;
-  border-bottom: 8px solid #fdfdfd; /* Spacing between "pill" rows */
+.col {
+  flex: 1;
+  font-weight: 600;
+  color: #1e1b4b;
+  font-size: 0.95rem;
 }
 
-/* The Green View Buttons */
-.text-green-600, .bg-green-600 {
-  background: #4ade80 !important; /* Vibrant Green */
-  color: white !important;
-  padding: 0.5rem 1.5rem !important;
-  border-radius: 12px !important;
-  font-weight: 700 !important;
+/* --- BUTTONS INSIDE ROWS --- */
+.view-btn {
+  background: #4ade80;
+  color: white;
   border: none;
-  text-transform: uppercase;
+  padding: 0.4rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.generate-btn {
+  background: #4ade80;
+  color: white;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 800;
   font-size: 0.75rem;
 }
 
-/* Search and Filters Glassmorphism */
-.bg-white.rounded-xl.shadow-sm.p-6 {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(165, 180, 252, 0.2);
-  border-radius: 20px;
-}
-
-input, select {
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-}
-
-/* View All button at bottom */
-.view-all-btn {
-  background: rgba(165, 180, 252, 0.4);
-  color: #4338ca;
-  padding: 0.4rem 1.2rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
+.view-all-link {
   float: right;
   margin-top: 1rem;
+  background: #e5deff;
+  color: #6366f1;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
 }

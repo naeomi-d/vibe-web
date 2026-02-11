@@ -1,0 +1,32 @@
+<div class="app-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="brand-text">Vibe match</span>
+    </div>
+    
+    <nav class="nav-list">
+      <a routerLink="/home" routerLinkActive="active-link" class="nav-item">
+        <span class="icon">🏠</span> Home
+      </a>
+      <a routerLink="/campaigns" routerLinkActive="active-link" class="nav-item">
+        <span class="icon">📣</span> Campaigns
+      </a>
+      <a routerLink="/creative-studio" routerLinkActive="active-link" class="nav-item">
+        <span class="icon">✏️</span> Creative Studio
+      </a>
+      <a routerLink="/assets" routerLinkActive="active-link" class="nav-item">
+        <span class="icon">📁</span> Assets
+      </a>
+      <a routerLink="/reports" routerLinkActive="active-link" class="nav-item">
+        <span class="icon">📊</span> Reports
+      </a>
+      <a routerLink="/settings" routerLinkActive="active-link" class="nav-item">
+        <span class="icon">⚙️</span> Settings
+      </a>
+    </nav>
+  </aside>
+
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>

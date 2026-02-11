@@ -1,10 +1,36 @@
 .landing {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Optimized Gradient: Darker base is built directly into the radial stops */
+  background: radial-gradient(at 0% 0%, #4f46e5 0%, transparent 50%), 
+              radial-gradient(at 100% 0%, #764ba2 0%, transparent 50%), 
+              radial-gradient(at 50% 100%, #3b0764 0%, transparent 50%);
+  overflow: hidden;
   position: relative;
 }
-
+.landing::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 50%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(118, 75, 162, 0.4) 0%, transparent 70%);
+  filter: blur(80px); /* Soft glow behind the ad boxes */
+  z-index: 0;
+  pointer-events: none;
+}
+.landing::after {
+  content: "";
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none; /* Ensures it doesn't block button clicks */
+}
 /* Navbar + Hero (unchanged) */
 .nav { 
   display: flex; 
@@ -12,6 +38,8 @@
   justify-content: space-between; 
   padding: 1rem 4rem; 
   color: white; 
+  position: relative; /* Necessary for z-index to work */
+  z-index: 100;
 }
 .nav-left { 
   display: flex; 
@@ -74,8 +102,8 @@
   background: rgba(255,255,255,0.2); 
 }
 .btn.signup { 
-  background: white; 
-  color: #667eea; 
+   background: rgba(255,255,255,0.2);
+  color: #ffffff; 
 }
 
 .hero {
@@ -124,9 +152,10 @@
 /* ✅ FIXED: Perfectly sized ad carousel */
 .ad-carousel {
   display: grid;
-  grid-template-columns: repeat(2, 220px);
-  grid-template-rows: repeat(2, 280px);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 240px);
+  grid-template-rows: repeat(2, 300px);
+  gap: 2rem;
+  padding-right: 2rem; /* Give space for the "scattered" effect */
 }
 
 .ad-box {
@@ -137,9 +166,8 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.2);
   overflow: hidden;
-  animation: rotateClockwise 20s linear infinite;
   transition: all 0.3s ease;
-  cursor: pointer;
+  animation: pulse 4s ease-in-out infinite;
 }
 
 .ad-box img {
@@ -152,42 +180,47 @@
 
 .ad-box:hover {
   animation-play-state: paused;
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transform: scale(1.1) !important; /* Slightly bigger than pulse for focus */
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  z-index: 10;
 }
 
 .ad-box-1 { 
   animation-delay: 0s; 
+  transform: rotate(-3deg);
+  align-self: end; /* Push down slightly */
 }
 .ad-box-2 { 
-  animation-delay: -5s; 
   grid-column: 2; 
+  animation-delay: -2s; 
+  transform: rotate(4deg);
+  align-self: start; /* Position it higher than box 1 */
+  margin-left: 20px; /* Offset to the right */
 }
 .ad-box-3 { 
-  animation-delay: -10s; 
   grid-row: 2; 
+  animation-delay: -2s; 
+  transform: rotate(2deg);
+  justify-self: center; /* Center it in its column */
+  margin-top: -20px; /* Pull it closer to the top row */
 }
 .ad-box-4 { 
-  animation-delay: -15s; 
   grid-column: 2; 
   grid-row: 2; 
+  animation-delay: 0s; 
+  transform: rotate(-5deg);
+  align-self: center;
 }
 
-@keyframes rotateClockwise {
-  0% { 
-    transform: rotate(0deg) translateX(0) rotate(0deg); 
+/* Alternating Pulse Effect */
+@keyframes pulse {
+  0%, 100% {
+    scale: 1;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   }
-  25% { 
-    transform: rotate(90deg) translateX(165px) rotate(-90deg); 
-  }
-  50% { 
-    transform: rotate(180deg) translateX(0) rotate(-180deg); 
-  }
-  75% { 
-    transform: rotate(270deg) translateX(-165px) rotate(-270deg); 
-  }
-  100% { 
-    transform: rotate(360deg) translateX(0) rotate(-360deg); 
+  50% {
+    scale: 1.08;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   }
 }
 
@@ -196,7 +229,7 @@
   padding: 4rem 4rem 2rem; 
   max-width: 1400px; 
   margin: 0 auto; 
-  background: rgba(255,255,255,0.05); 
+  /* background removed here */
 }
 .features-grid { 
   display: grid; 
@@ -210,35 +243,58 @@
   font-weight: 800;
   color: #ffffff;    /* Assuming a white text on purple vibe */
   margin-bottom: 3rem; 
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 .feature-card { 
-  background: rgba(255,255,255,0.15); 
-  backdrop-filter: blur(20px); 
+  background: #764ba2; /* Slightly more transparent for glass effect */
+  backdrop-filter: blur(25px) saturate(150%); 
   border-radius: 24px; 
+
   padding: 2.5rem 2rem; 
-  border: 1px solid rgba(255,255,255,0.2); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   color: white; 
   height: 280px; 
   display: flex; 
   flex-direction: column; 
   align-items: center; 
   justify-content: center; 
-  transition: transform 0.3s; 
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease; 
 }
 .feature-card:hover { 
-  transform: translateY(-8px); 
+  transform: translateY(-10px);
+  background: #7d58b3; 
 }
-.card-icon { 
-  font-size: 3rem; 
-  margin-bottom: 1rem; 
+.card-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.1); /* Subtle glass effect */
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+.card-icon svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+.feature-card:hover .card-icon {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .feature-card h3 { 
   font-size: 1.5rem; 
   font-weight: 700; 
   margin-bottom: 1rem; 
+  color: #ffffff;
 }
 .feature-card ul { 
   list-style: none; 
@@ -263,6 +319,7 @@
 }
 .cta-heading {
   color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   font-size: 2rem; 
   font-weight: 800;
   letter-spacing: 1px;
@@ -304,6 +361,7 @@
 }
 .vibe-match h2 { 
   color: white; 
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   font-size: 2.5rem; 
   font-weight: 800; 
   background: linear-gradient(135deg, #fff, rgba(255,255,255,0.7)); 
