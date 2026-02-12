@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router'; // 1. Added Router import
 
 interface LoginForm {
   email: string;
@@ -13,7 +13,7 @@ interface LoginForm {
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'  // Fixed: styleUrl not styleUrls
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
   loginForm: LoginForm = {
@@ -21,14 +21,23 @@ export class LoginComponent {
     password: ''
   };
 
+  // 2. Inject Router in the constructor
+  constructor(private router: Router) {}
+
   onSubmit() {
     console.log('Login submitted:', this.loginForm);
-    // TODO: Call your auth service
+    
+    // 3. Logic to redirect after successful login
+    if (this.isFormValid()) {
+      // Directs user to the 'home' path inside your DashboardLayout
+      this.router.navigate(['/home']);
+    }
   }
 
   onGoogleLogin() {
     console.log('Google login clicked');
-    // TODO: Google OAuth
+    // For demo purposes, you can also redirect here
+    this.router.navigate(['/home']);
   }
 
   isFormValid(): boolean {

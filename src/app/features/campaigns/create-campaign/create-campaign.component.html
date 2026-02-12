@@ -3,22 +3,82 @@
     <h1 class="main-title">CAMPAIGN ARCHITECT</h1>
 
     <div class="form-section">
-      <label class="vibe-label">Campaign name:</label>
+      <label class="vibe-label">Campaign Name:</label>
       <input type="text" class="vibe-input" placeholder="Enter campaign name...">
     </div>
 
-    <div class="form-section">
-      <label class="vibe-label">Campaign Objectives</label>
-      <div class="radio-row">
-        <label class="custom-radio"><input type="radio" name="obj" checked> <span></span> BRAND AWARENESS</label>
-        <label class="custom-radio"><input type="radio" name="obj"> <span></span> SALES / CONVERSIONS</label>
+    <div class="input-grid">
+      <div class="form-section">
+        <label class="vibe-label">Campaign Objectives:</label>
+        <select class="vibe-select">
+          <option>Brand Awareness</option>
+          <option>Sales / Conversions</option>
+          <option>Lead Generation</option>
+        </select>
+      </div>
+      <div class="form-section">
+        <label class="vibe-label">Duration:</label>
+        <input type="text" class="vibe-input" placeholder="e.g. 2 Weeks / 30 Days">
       </div>
     </div>
 
     <div class="form-section">
-      <label class="vibe-label">Target Audience</label>
+      <label class="vibe-label">Platform Channels (Select all that apply):</label>
+      <div class="check-row">
+        <label class="custom-check"><input type="checkbox" checked> <span></span> Instagram</label>
+        <label class="custom-check"><input type="checkbox"> <span></span> Meta / Facebook</label>
+        <label class="custom-check"><input type="checkbox"> <span></span> Google Ads</label>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <h2 class="section-header">BRAND & PRODUCT IDENTITY</h2>
+    
+    <div class="input-grid">
+      <div class="form-section">
+        <label class="vibe-label">Brand Name:</label>
+        <input type="text" class="vibe-input" placeholder="e.g. VibeBeauty">
+      </div>
+      <div class="form-section">
+        <label class="vibe-label">Product Name:</label>
+        <input type="text" class="vibe-input" placeholder="e.g. Glow Serum">
+      </div>
+    </div>
+
+    <div class="input-grid">
+      <div class="form-section">
+        <label class="vibe-label">Product Category:</label>
+        <input type="text" class="vibe-input" placeholder="e.g. Skincare / Cosmetics">
+      </div>
+      <div class="form-section">
+        <label class="vibe-label">Price / Budget Point:</label>
+        <input type="text" class="vibe-input" placeholder="e.g. $45.00">
+      </div>
+    </div>
+
+    <div class="form-section">
+      <label class="vibe-label">Product Highlights:</label>
+      <textarea class="vibe-textarea" placeholder="What makes this product special?"></textarea>
+    </div>
+
+    <div class="form-section">
+      <label class="vibe-label">Ingredients:</label>
+      <textarea class="vibe-textarea" placeholder="List key ingredients (if applicable)..."></textarea>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <h2 class="section-header">VISUALS & TARGETING</h2>
+
+    <div class="form-section">
+      <label class="vibe-label">Visual Elements (Colors, Lighting, Composition):</label>
+      <textarea class="vibe-textarea" placeholder="Describe the look: e.g. Neon colors, soft side-lighting, minimalist background..."></textarea>
+    </div>
+
+    <div class="form-section">
+      <label class="vibe-label">Target Audience (Age Group):</label>
       <div class="chip-row">
-        <span class="sub-label">Age Group:</span>
         <button class="vibe-chip active">18–24</button>
         <button class="vibe-chip">25–34</button>
         <button class="vibe-chip">35–44</button>
@@ -27,56 +87,30 @@
     </div>
 
     <div class="form-section">
-      <label class="vibe-label">Region:</label>
-      <select class="vibe-select">
-        <option>Global ▼</option>
-      </select>
-    </div>
-
-    <div class="form-section">
-      <label class="vibe-label">AD Platform Selection</label>
-      <div class="check-row">
-        <label class="custom-check"><input type="checkbox" checked> <span></span> INSTAGRAM</label>
-        <label class="custom-check"><input type="checkbox"> <span></span> META</label>
-        <label class="custom-check"><input type="checkbox"> <span></span> Google Ads</label>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <h2 class="section-header">BRAND IDENTITY INPUT</h2>
-    <div class="upload-row">
-      <div class="upload-box">
-        <label class="vibe-label">Upload Logo:</label>
-        <button class="vibe-btn-sm">Upload Logo</button>
-      </div>
-      <div class="upload-box">
-        <label class="vibe-label">Upload Product Image(s):</label>
-        <button class="vibe-btn-sm">Product Img</button>
-      </div>
-    </div>
-
-    <div class="form-section">
-      <label class="vibe-label">Product Description:</label>
-      <textarea class="vibe-textarea"></textarea>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <h2 class="section-header">EMOTIONAL TONE SELECTION</h2>
-    <div class="tone-search-container">
-      <div class="search-pill">
-        <input type="text" placeholder="Search">
-      </div>
-      <div class="chip-row mt-3">
+      <label class="vibe-label">Tone / Vibe:</label>
+      <div class="chip-row">
         <button class="vibe-chip-purple">Cheerful</button>
         <button class="vibe-chip-purple">Luxury</button>
         <button class="vibe-chip-purple">Professional</button>
+        <button class="vibe-chip-purple">Bold</button>
+      </div>
+    </div>
+
+    <div class="upload-row">
+      <div class="upload-box">
+        <label class="vibe-label">Product Images:</label>
+        <button class="vibe-btn-sm">Upload Photos</button>
+      </div>
+      <div class="upload-box">
+        <label class="vibe-label">Reference Styles:</label>
+        <button class="vibe-btn-sm">Upload Style Ref</button>
       </div>
     </div>
 
     <div class="footer-action">
-      <button class="vibe-btn-primary">Proceed to Creative Studio</button>
+      <button class="vibe-btn-primary" routerLink="/creative-studio">
+    Proceed to Creative Studio
+  </button>
     </div>
   </div>
 </div>
