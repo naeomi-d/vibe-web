@@ -34,7 +34,7 @@
 .vibe-label {
   color: #6366f1;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px; /* Increased from 8px for more vertical air */
   display: block;
 }
 
@@ -58,8 +58,15 @@
 /* NEW: Grid for better spacing of the many new fields */
 .input-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr; /* This splits the row in two */
+  
+  /* CHANGE THIS: Increase the gap to at least 40px to stop the overlap */
+  column-gap: 50px; 
+  
+  /* Optional: Adds space between the rows vertically */
+  row-gap: 30px; 
+  
+  margin-bottom: 15px;
 }
 
 /* Custom Checkboxes */
